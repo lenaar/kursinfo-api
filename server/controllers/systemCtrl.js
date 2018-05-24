@@ -1,6 +1,8 @@
 'use strict'
 
 const packageFile = require('../../package.json')
+const version = require('../../config/version')
+const os = require('os')
 const getPaths = require('kth-node-express-routing').getPaths
 const db = require('kth-node-mongo')
 
@@ -40,7 +42,10 @@ function getAbout (req, res) {
     appVersion: packageFile.version,
     appDescription: packageFile.description,
     monitorUri: paths.system.monitor.uri,
-    robotsUri: paths.system.robots.uri
+    robotsUri: paths.system.robots.uri,
+    dockerName: JSON.stringify(version.dockerName),
+    dockerVersion: JSON.stringify(version.dockerVersion),
+    hostname: os.hostname()
   })
 }
 
