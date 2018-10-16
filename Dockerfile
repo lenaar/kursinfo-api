@@ -1,7 +1,5 @@
 FROM kthse/kth-nodejs:9.11.0
 
-MAINTAINER KTH Webb "cortina.developers@kth.se"
-
 RUN mkdir -p /npm && \
     mkdir -p /application
 
@@ -28,6 +26,6 @@ COPY ["server", "server"]
 
 ENV NODE_PATH /application
 
-EXPOSE 3001
+EXPOSE 3000
 
 ENTRYPOINT ["node", "app.js"]
